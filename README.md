@@ -18,7 +18,7 @@ class Film:
         self.genre = genre
         self.price = price
 ```
-Given a list of film objects, find the total cost of all films with the genre "HORROR".
+Given a list of film objects, find the total cost of all films with the genre "HORROR" using `stream()`.
 ```python
 # films is a list of Film objects
 
@@ -27,7 +27,7 @@ total_cost = stream(films) \
     .map(lambda film: film.price) \
     .sum()
 ```
-Given a list of film objects, return the unique genres ordered alphabetically.
+Given a list of film objects, return the unique genres ordered alphabetically using `stream()`.
 ```python
 # films is a list of Film objects
 
