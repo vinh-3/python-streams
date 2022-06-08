@@ -88,6 +88,9 @@ class Stream:
 
         return False
 
+    def count(self) -> int:
+        return len(self.stream)
+
     def find_first(self, function: Callable[[Any], bool]) -> Optional[Any]:
         for element in self.stream:
             if function(element):
@@ -99,14 +102,11 @@ class Stream:
         for element in self.stream:
             function(element)
 
-    def count(self) -> int:
-        return len(self.stream)
+    def list(self) -> List[Any]:
+        return self.stream
 
     def sum(self):
         return sum(self.stream)
-
-    def list(self) -> List[Any]:
-        return self.stream
 
     # private helper methods
 
