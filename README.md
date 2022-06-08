@@ -34,8 +34,9 @@ Given a list of film objects, return the unique genres ordered alphabetically.
 genres = stream(films) \
     .map(lambda film: film.genre) \
     .distinct() \
+    .sort() \
     .list()
 ```
-In the examples above, the intermediate methods are `filter()`, `map()` and `distinct()`. The terminal operations are `sum()` and `list()`.
+In the examples above, the intermediate methods are `filter()`, `map()`, `distinct()` and `sort()`. The terminal operations are `sum()` and `list()`.
 
 
