@@ -2,12 +2,13 @@
 Note: in most places where deleting an element from the middle of a list may have been more convenient, a swap is used.
       This is because deletes are worse case O(n) operations whereas swaps are O(1) operations.
 """
+from copy import deepcopy
 from typing import Any, Callable, List, Optional
 
 
 class Stream:
     def __init__(self, streamable: List[Any]):
-        self.stream = streamable
+        self.stream = deepcopy(streamable)
 
     # Intermediate methods (returns the stream)
 
