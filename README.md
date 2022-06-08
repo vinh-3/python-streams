@@ -9,7 +9,7 @@ There are two key operations that can be performed on a stream:
 be chained together.
 - Terminal operations - act on the elements of the stream to return a final result.
 
-## Usages
+## Usage Example
 Consider the following film class.
 ```python
 class Film:
