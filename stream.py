@@ -105,6 +105,28 @@ class Stream:
     def list(self) -> List[Any]:
         return self.stream
 
+    def max(self) -> Optional[Any]:
+        if not self.stream:
+            return None
+
+        maximum = self.stream[0]
+
+        for element in self.stream:
+            maximum = max(element, maximum)
+
+        return maximum
+
+    def min(self) -> Optional[Any]:
+        if not self.stream:
+            return None
+
+        minimum = self.stream[0]
+
+        for element in self.stream:
+            minimum = min(element, minimum)
+
+        return minimum
+
     def sum(self):
         return sum(self.stream)
 
