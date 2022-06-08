@@ -9,6 +9,8 @@ There are two key operations that can be performed on a stream:
 be chained together.
 - Terminal operations - act on the elements of the stream to return a final result.
 
+Note: Python's list comprehension offers a concise syntax to work with lists, however streams would offer a functional syntax that allows the chaining of multiple operations.
+
 ## Usage Example
 Consider the following film class.
 ```python
@@ -18,7 +20,7 @@ class Film:
         self.genre = genre
         self.price = price
 ```
-Given a list of film objects, find the total cost of all films with the genre "HORROR".
+Given a list of film objects, find the total cost of all films with the genre "HORROR" using `stream()`.
 ```python
 # films is a list of Film objects
 
@@ -27,15 +29,16 @@ total_cost = stream(films) \
     .map(lambda film: film.price) \
     .sum()
 ```
-Given a list of film objects, return the unique genres ordered alphabetically.
+Given a list of film objects, return the unique genres ordered alphabetically using `stream()`.
 ```python
 # films is a list of Film objects
 
 genres = stream(films) \
     .map(lambda film: film.genre) \
     .distinct() \
+    .sort() \
     .list()
 ```
-In the examples above, the intermediate methods are `filter()`, `map()` and `distinct()`. The terminal operations are `sum()` and `list()`.
+In the examples above, the intermediate methods are `filter()`, `map()`, `distinct()` and `sort()`. The terminal operations are `sum()` and `list()`.
 
 
