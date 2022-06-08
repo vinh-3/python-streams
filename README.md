@@ -18,8 +18,6 @@ class Film:
         self.genre = genre
         self.price = price
 ```
-
-
 Given a list of film objects, find the total cost of all films with the genre "HORROR".
 ```python
 # films is a list of Film objects
@@ -29,8 +27,6 @@ total_cost = stream(films) \
     .map(lambda film: film.price) \
     .sum()
 ```
-
-
 Given a list of film objects, return the unique genres ordered alphabetically.
 ```python
 # films is a list of Film objects
@@ -40,6 +36,6 @@ genres = stream(films) \
     .distinct()\
     .list()
 ```
-
+In the examples above, the intermediate methods are `filter()`, `map()` and `distinct()`. The terminal operations are `sum()` and `list()`.
 
 
