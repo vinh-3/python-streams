@@ -9,6 +9,8 @@ There are two key operations that can be performed on a stream:
 be chained together.
 - Terminal operations - act on the elements of the stream to return a final result.
 
+Note: Python's list comprehension offers a concise syntax to work with lists, however streams offer a functional syntax that allows the chaining of multiple operations.
+
 ## Usage Example
 Consider the following film class.
 ```python
