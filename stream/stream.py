@@ -16,6 +16,7 @@ class Stream:
         found = set()
 
         write_idx = 0
+        removed = 0
 
         for i in range(len(self.stream)):
             element = self.stream[i]
@@ -24,13 +25,16 @@ class Stream:
                 found.add(element)
                 self._swap_elements(write_idx, i)
                 write_idx += 1
+            else:
+                removed += 1
 
-        self._delete_last_elements(write_idx)
+        self._delete_last_elements(removed)
 
         return self
 
     def filter(self, function: Callable[[Any], bool]):
         write_idx = 0
+        removed = 0
 
         for i in range(len(self.stream)):
             element = self.stream[i]
@@ -38,8 +42,10 @@ class Stream:
             if function(element):
                 self._swap_elements(write_idx, i)
                 write_idx += 1
+            else:
+                removed += 1
 
-        self._delete_last_elements(write_idx)
+        self._delete_last_elements(removed)
 
         return self
 

@@ -41,4 +41,9 @@ genres = stream(films) \
 ```
 In the examples above, the intermediate methods are `filter()`, `map()`, `distinct()` and `sort()`. The terminal operations are `sum()` and `list()`.
 
+## Tests
+Unit tests have been created for all intermediate and terminal methods. To run unit tests, use:
 
+```commandline
+python -m unittest
+```
