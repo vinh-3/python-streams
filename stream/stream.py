@@ -34,7 +34,7 @@ class Stream:
         return self
 
     def filter(self, function: Callable[[Any], bool]):
-        """ Filter out all elements that don't return True to the given callable. """
+        """ Filter out all elements that don't match the given callable. """
         write_idx = 0
         removed = 0
 
