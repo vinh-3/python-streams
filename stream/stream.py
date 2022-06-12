@@ -13,6 +13,7 @@ class Stream:
     # Intermediate methods (returns the stream)
 
     def distinct(self):
+        """ Removes any duplicate elements from the stream. """
         found = set()
 
         write_idx = 0
@@ -33,6 +34,7 @@ class Stream:
         return self
 
     def filter(self, function: Callable[[Any], bool]):
+        """ Filter out all elements that don't return True to the given callable. """
         write_idx = 0
         removed = 0
 
@@ -50,12 +52,14 @@ class Stream:
         return self
 
     def map(self, function: Callable[[Any], Any]):
+        """ Map all elements using the given callable. """
         for i in range(len(self.stream)):
             self.stream[i] = function(self.stream[i])
 
         return self
 
     def limit(self, max_size: int):
+        """ If the size of the stream is greater than max_size, truncate the right most elements. """
         stream_size = len(self.stream)
 
         if max_size < stream_size:
@@ -64,6 +68,7 @@ class Stream:
         return self
 
     def skip(self, n):
+        """ Remove the first n elements from the stream. """
         write_idx = 0
 
         for i in range(n, len(self.stream)):
@@ -75,6 +80,7 @@ class Stream:
         return self
 
     def sort(self):
+        """ Sort the stream. """
         self.stream.sort()
 
         return self
@@ -82,6 +88,7 @@ class Stream:
     # Terminal methods
 
     def all(self, function: Callable[[Any], bool]) -> bool:
+        """ Return True if all elements match the given callable else False. """
         for element in self.stream:
             if not function(element):
                 return False
@@ -89,6 +96,7 @@ class Stream:
         return True
 
     def any(self, function: Callable[[Any], bool]) -> bool:
+        """ Return True if any of the elements match the given callable else False. """
         for element in self.stream:
             if function(element):
                 return True
@@ -96,9 +104,11 @@ class Stream:
         return False
 
     def count(self) -> int:
+        """ Return the size of the stream. """
         return len(self.stream)
 
     def find_first(self, function: Callable[[Any], bool]) -> Optional[Any]:
+        """ Find the first element that matches the callable in the stream, else None is returned. """
         for element in self.stream:
             if function(element):
                 return element
@@ -106,13 +116,16 @@ class Stream:
         return None
 
     def for_each(self, function: Callable[[Any], None]) -> None:
+        """ For each element in the stream, execute the given callable. """
         for element in self.stream:
             function(element)
 
     def list(self) -> List[Any]:
+        """ Return the stream as a list. """
         return self.stream
 
     def max(self) -> Optional[Any]:
+        """ Find the max element in a stream. None is returned if the stream is empty. """
         if not self.stream:
             return None
 
@@ -124,6 +137,8 @@ class Stream:
         return maximum
 
     def min(self) -> Optional[Any]:
+        """ Find the min element in a stream. None is returned if the stream is empty. """
+
         if not self.stream:
             return None
 
@@ -135,6 +150,7 @@ class Stream:
         return minimum
 
     def sum(self):
+        """ Return the sum of the elements in the stream. """
         return sum(self.stream)
 
     # private helper methods
